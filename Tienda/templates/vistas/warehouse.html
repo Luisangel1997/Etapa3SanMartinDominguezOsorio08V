@@ -1,0 +1,36 @@
+{% extends 'vistas/main.html' %}
+{% load static %}
+{% block title %}
+<title>Bodega Productos</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Productos</h1>
+    <br>
+    <a href="{% url 'createP' %}" class='button success'>Añadir Nuevo Producto</a>
+    <div class="contenedor-tabla">
+        <table class="primary">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Tipo Deporte</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in productos %}
+                    <tr>
+                        <td>{{i.nombre}}</td>
+                        <td>{{i.precio}}</td>
+                        <td>{{i.tipoDeporte}}</td>
+                        <td>
+                            <a href="{% url 'editP' i.id %}" class="button warning">Editar</a>
+                            <a href="{% url 'deleteP' i.id %}" class="button error">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

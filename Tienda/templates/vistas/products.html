@@ -1,0 +1,24 @@
+{% extends 'vistas/main.html' %}
+{% load static %}
+{% block title %}
+<title>Productos | {{dep.descripcion}}</title>
+{% endblock %}
+
+{% block content %}
+    {% if request.user.is_staff %}
+        <a href="{% url 'warehouse' %}" class="mainButton button success">Administrar Productos</a>
+    {% endif %}
+    <h1>Productos de {{dep.nombre}}</h1>
+    <div class="flex two-500 three-900 four-1200 demo">
+    {% for i in pro %}
+        <a href="#">
+            <div class="card">
+                <img class="stack galeria" src="{{ i.foto.url }}">
+                <span class="articulo stack">{{ i.nombre }}</span>
+                <span class="articulo stack"><strong>$ {{ i.precio }}</strong></span>
+            </div>
+        </a>
+        <br>
+    {% endfor %}
+    </div>
+{% endblock %}

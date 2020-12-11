@@ -1,0 +1,17 @@
+{% extends 'vistas/main.html' %}
+{% load static %}
+{% block title %}
+<title>{{title}}</title>
+{% endblock %}
+
+{% block content %}
+<h1>Formulario Producto</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    <div>
+        {% csrf_token %}
+        {{form}}
+    </div>
+    <input type="submit" class="success" value="Crear">
+    <a href="{% url 'warehouse' %}" class="button warning">Volver al inventario</a>
+</form>
+{% endblock %}

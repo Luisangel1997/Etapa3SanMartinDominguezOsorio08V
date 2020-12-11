@@ -1,0 +1,24 @@
+{% load static %}
+<nav class="demo">
+    <a href="#" class="brand">
+      <img class="logo" src="{% static 'img/Logo.png' %}" />
+      <span>Deportes Luchin</span>
+    </a>
+  
+    <!-- responsive-->
+    <input id="bmenub" type="checkbox" class="show">
+    <label for="bmenub" class="burger pseudo button">&#8801; menu</label>
+  
+    <div class="menu">
+      <a href="{% url 'home' %}" class="pseudo button">Inicio</a>
+      <a href="{% url 'about' %}" class="pseudo button">Quienes Somos</a>
+      {% if user.is_authenticated %}
+      <label class="user-label">Hola {{ request.user }}</label>
+      <a href="{% url 'logout' %}" class="button myPersonalBtn">Cerrar Sesión</a>
+      {% else %}
+        <a href="{% url 'register' %}" class="button myPersonalBtn">Registrarse</a>
+        <a href="{% url 'login' %}" class="button myPersonalBtn">Iniciar Sesión</a>
+      {% endif %}
+    </div>
+  </nav> 
+</div>

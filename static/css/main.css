@@ -1,0 +1,91 @@
+body{
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+nav{
+    background-color: #93cdee;
+}
+
+.logo{
+    width: 50px;
+}
+
+h1,h2,h3,h4,h5,h6,p,label{
+    color: #eae1e1;
+}
+
+main{
+    min-height: 80%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.container{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+ul {
+    list-style-image: "\2022";
+    color: white; /* Change the color */
+}
+
+#mySlider{
+    width: 50%;
+    margin: 0 auto;
+}
+
+footer{
+	background-color:#333;
+	height: 20%;
+}
+
+.mainButton, .shyButton{
+    text-align: center;
+}
+
+.articulo{
+    text-align: center;
+    font-size: x-large;
+    color: black;
+    background-color: #93cdee;
+}
+
+.myPersonalBtn{
+    background: rgb(38, 69, 170);
+    color: whitesmoke;
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    background-color: #e6e8fa;
+}
+
+tr:nth-child(even){
+    background-color: whitesmoke;
+}
+
+tr:hover{
+    background-color: #5d8aa8;
+    color: white;
+}
+
+textarea{
+    resize: none;
+}
+
+.user-label{
+    color: black;
+    cursor: context-menu;
+}
+
+@media (max-width: 630px) {
+    .contenedor-tabla{
+        overflow-x: scroll;
+    }
+}

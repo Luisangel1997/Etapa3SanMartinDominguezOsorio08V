@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
+</head>
+
+<body>
+    <article class="card" id="login">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <header>
+                <h3>Registrar una cuenta</h3>
+            </header>
+            <footer>
+                {{form.username}}
+                <br /><br />
+                {{form.email}}
+                <br /><br />
+                {{form.password1}}
+                <br /><br />
+                {{form.password2}}
+                <hr>
+                <button type="submit" class="success">Registrarse</button>
+                <a href="{% url 'home' %}" class="button dangerous"> Regresar</a>
+                <hr>
+                <p>¿Ya tiene una cueta? <a class="link" href="{% url 'login' %}">Iniciar Sesión</a></p>
+                <hr>
+                {{form.errors}}
+            </footer>
+        </form>
+    </article>
+    <script>
+        document.getElementById("id_password1").placeholder = "Contraseña";
+        document.getElementById("id_password2").placeholder = "Confirme contraseña";
+    </script>
+</body>
+</html>

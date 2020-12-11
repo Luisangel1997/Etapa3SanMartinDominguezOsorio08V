@@ -1,0 +1,45 @@
+{% extends 'vistas/main.html' %}
+{% load static %}
+{% block title %}
+<title>Inicio</title>
+<link rel="stylesheet" href="{% static '/css/carrousel.css' %}">
+<script src="{% static '/js/carrousel.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_staff %}
+    <a href="{% url 'warehouse' %}" class="mainButton button success">Administrar Productos</a>
+{% endif %}
+<div id="mySlider">
+    <img src="{% static 'img/carrusel/01.jpg' %}" />
+    <img src="{% static 'img/carrusel/02.jpg' %}" />
+    <img src="{% static 'img/carrusel/03.jpg' %}" />
+    <img src="{% static 'img/carrusel/04.jpg' %}" />
+</div>
+
+<br>
+<h2>Deportes Luchin. donde encontraras todo lo que necesitas para practicar tu deporte favorito.</h2>
+<h3>Revisa nuestros articulos en las diferentes categorias</h3>
+
+<div class="flex two-500 three-900 four-1200 demo">
+    {% for i in deporte %}
+    <a href="{% url 'products' i.id %}">
+        <div>
+            <img class="stack galeria" src="{{ i.foto.url }}">
+            <button class="mainButton stack">{{ i.nombre }}</button>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<script>
+    var otslider = new OTSlider();
+    otslider.init({
+        element: document.getElementById('mySlider'),
+        transition: 'fade',
+        transitionDuration: 500,
+        roundButtons: true,
+        numericNav: false
+    });  
+</script>
+{% endblock %}
